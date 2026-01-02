@@ -22,7 +22,6 @@ class GenreShortSerializer(serializers.ModelSerializer):
 
 
 class ActorSerializer(serializers.ModelSerializer):
-    # full_name = serializers.CharField(source="__str__", read_only=True)
     full_name = serializers.ReadOnlyField(source="__str__")
 
     class Meta:
@@ -104,7 +103,7 @@ class MovieSessionListSerializer(serializers.ModelSerializer):
 
 
 class MovieSessionDetailSerializer(serializers.ModelSerializer):
-    movie = MovieListSerializer(read_only=True)
+    movie = MovieDetailSerializer(read_only=True)
     cinema_hall = CinemaHallSerializer(read_only=True)
 
     class Meta:
